@@ -166,11 +166,9 @@ class ModelInterpreter:
         explainer_fitted = self._tree_explainer_setup(model)
 
         if not explainer_fitted:
-
             explainer_fitted = self._linear_explainer_setup(model, X_train)
 
         if not explainer_fitted:
-
             self._kernel_explainer_setup(model, X_train, is_classification, n_samples)
 
         return self.explainer

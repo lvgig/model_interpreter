@@ -16,10 +16,10 @@ sys.path.insert(0, os.path.abspath("../../"))
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
-project = 'model_interpreter'
-copyright = '2024, LV GI Data Science Team'
-author = 'LV GI Data Science Team'
-release = 'model_interpreter.__version__'
+project = "model_interpreter"
+copyright = "2024, LV GI Data Science Team"
+author = "LV GI Data Science Team"
+release = "model_interpreter.__version__"
 
 
 # -- General configuration ---------------------------------------------------
@@ -34,7 +34,7 @@ extensions = [
 ]
 
 
-templates_path = ['_templates']
+templates_path = ["_templates"]
 exclude_patterns = []
 
 autodoc_default_flags = ["members", "inherited-members", "show-inheritance"]

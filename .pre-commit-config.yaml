@@ -1,0 +1,12 @@
+repos: 
+ -  repo: https://github.com/ambv/black
+    rev: 22.3.0
+    hooks:
+    - id: black
+      language_version: python3
+
+ -  repo: https://github.com/pycqa/bandit
+    rev: 1.7.4
+    hooks:
+    - id: bandit
+

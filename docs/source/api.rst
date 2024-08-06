@@ -1,13 +1,9 @@
-api documentation
-====================
+API Documentation
+=================
 
-.. currentmodule:: model_interpreter
+Information on specific functions, classes, and methods.
 
-interpreter module
-------------------
+.. toctree::
+   :glob:
 
-.. autosummary::
-    :toctree: api/
-
-    interpreter.ModelInterpreter
-
+   api/*

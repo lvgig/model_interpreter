@@ -1,0 +1,6 @@
+name: ModelInterpreterDev
+dependencies:
+  - pip=24.2
+  - python=3.10.12
+  - pip:
+      - -r requirements-dev.txt

@@ -192,14 +192,11 @@ def tree_model_RF(linear_df, features):
     Takes in the initial df which was set as a fixture.
     This RF is a multi-class classification problem"""
 
-    np.random.seed(43)
-
     X = linear_df[features]
-    y = np.random.randint(0, 3, len(X))
 
-    X_train, X_test, y_train, y_test = train_test_split(
-        X, y, test_size=0.33, random_state=42
-    )
+    X_train = X.iloc[:3]
+    y_train = [1, 2, 3]
+
     clf = RandomForestClassifier(max_depth=2, random_state=0)
     clf.fit(X_train, y_train)
 
@@ -212,6 +209,8 @@ def tree_model_RF_binary(linear_df, features):
     Takes in the initial df which was set as a fixture"""
 
     X = linear_df[features]
+
+    np.random.seed(43)
     y = np.random.randint(0, 2, len(X))
 
     X_train, X_test, y_train, y_test = train_test_split(

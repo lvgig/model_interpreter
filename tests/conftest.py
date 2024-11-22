@@ -195,6 +195,8 @@ def tree_model_RF(linear_df, features):
     X = linear_df[features]
 
     X_train = X.iloc[:3]
+
+    # this is meant to test multiclass, setup target col for this
     y_train = [1, 2, 3]
 
     clf = RandomForestClassifier(max_depth=2, random_state=0)

@@ -21,4 +21,14 @@ Each individual change should have a link to the pull request after the descript
 
 Added
 ^^^^^
+- Moved config to pyproject.toml approach
+- Updated envs and impacted logic (e.g to accomodate new shap behaviour)
+- Setup devcontainer config for codespaces
+- Updated build pipeline
+
+1.0.0 (2024-08-06)
+-------------------
+
+Added
+^^^^^
 - Open source release of the package on Github

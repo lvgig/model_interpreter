@@ -6,17 +6,10 @@
 #
 attrs==24.2.0
     # via hypothesis
-bandit==1.7.10
-    # via model-interpeter (pyproject.toml)
 cfgv==3.4.0
     # via pre-commit
 cloudpickle==3.1.0
     # via shap
-colorama==0.4.6
-    # via
-    #   bandit
-    #   pytest
-    #   tqdm
 coverage[toml]==7.6.7
     # via pytest-cov
 distlib==0.3.9
@@ -37,10 +30,6 @@ joblib==1.4.2
     # via scikit-learn
 llvmlite==0.43.0
     # via numba
-markdown-it-py==3.0.0
-    # via rich
-mdurl==0.1.2
-    # via markdown-it-py
 mypy==1.13.0
     # via model-interpeter (pyproject.toml)
 mypy-extensions==1.0.0
@@ -48,9 +37,7 @@ mypy-extensions==1.0.0
 nodeenv==1.9.1
     # via pre-commit
 numba==0.60.0
-    # via
-    #   model-interpeter (pyproject.toml)
-    #   shap
+    # via shap
 numpy==2.0.2
     # via
     #   model-interpeter (pyproject.toml)
@@ -60,6 +47,8 @@ numpy==2.0.2
     #   scipy
     #   shap
     #   xgboost
+nvidia-nccl-cu12==2.23.4
+    # via xgboost
 packaging==24.2
     # via
     #   pytest
@@ -68,22 +57,14 @@ pandas==2.2.3
     # via
     #   model-interpeter (pyproject.toml)
     #   shap
-pbr==6.1.0
-    # via stevedore
 platformdirs==4.3.6
     # via virtualenv
 pluggy==1.5.0
-    # via
-    #   model-interpeter (pyproject.toml)
-    #   pytest
+    # via pytest
 pre-commit==4.0.1
     # via model-interpeter (pyproject.toml)
 py-cpuinfo==9.0.0
     # via pytest-benchmark
-pygments==2.18.0
-    # via rich
-pyodbc==5.2.0
-    # via model-interpeter (pyproject.toml)
 pytest==8.3.3
     # via
     #   model-interpeter (pyproject.toml)
@@ -101,11 +82,7 @@ python-dateutil==2.9.0.post0
 pytz==2024.2
     # via pandas
 pyyaml==6.0.2
-    # via
-    #   bandit
-    #   pre-commit
-rich==13.9.4
-    # via bandit
+    # via pre-commit
 ruff==0.8.0
     # via model-interpeter (pyproject.toml)
 scikit-learn==1.5.2
@@ -125,8 +102,6 @@ slicer==0.0.8
     # via shap
 sortedcontainers==2.4.0
     # via hypothesis
-stevedore==5.4.0
-    # via bandit
 threadpoolctl==3.5.0
     # via scikit-learn
 tomli==2.1.0
@@ -137,9 +112,7 @@ tomli==2.1.0
 tqdm==4.67.0
     # via shap
 typing-extensions==4.12.2
-    # via
-    #   mypy
-    #   rich
+    # via mypy
 tzdata==2024.2
     # via pandas
 virtualenv==20.27.1

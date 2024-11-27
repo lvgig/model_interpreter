@@ -6,7 +6,7 @@ build-backend = "setuptools.build_meta"
 enabled = true # Allows setuptools-git-versioning to pull version from git state
 
 [tool.setuptools]
-py-modules = []
+packages = ["model_interpreter"]
 
 [project]
 name = "model-interpeter"
@@ -21,7 +21,6 @@ dynamic = ["version"]
 
 dependencies = [
     "numpy",
-    "numba",
     "shap",
 ]
 
@@ -32,13 +31,10 @@ dev = [
     "pytest-mock",
     "pytest-cov",
     "pytest-benchmark",
-    "bandit",
     "hypothesis",
     "mypy",
     "ruff",
-    "pluggy",
     "pre-commit",
-    "pyodbc",
     "scikit-learn",
     "pandas",
 ]

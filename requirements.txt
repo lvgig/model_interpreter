@@ -23,7 +23,7 @@ numba==0.60.0
 numpy==2.0.2
     # via
     #   -c requirements-dev.txt
-    #   model-interpeter (pyproject.toml)
+    #   model_interpeter (pyproject.toml)
     #   numba
     #   pandas
     #   scikit-learn
@@ -57,7 +57,7 @@ scipy==1.13.1
 shap==0.46.0
     # via
     #   -c requirements-dev.txt
-    #   model-interpeter (pyproject.toml)
+    #   model_interpeter (pyproject.toml)
 six==1.16.0
     # via
     #   -c requirements-dev.txt
@@ -70,7 +70,7 @@ threadpoolctl==3.5.0
     # via
     #   -c requirements-dev.txt
     #   scikit-learn
-tqdm==4.67.0
+tqdm==4.67.1
     # via
     #   -c requirements-dev.txt
     #   shap

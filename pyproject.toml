@@ -9,7 +9,7 @@ enabled = true # Allows setuptools-git-versioning to pull version from git state
 packages = ["model_interpreter"]
 
 [project]
-name = "model-interpeter"
+name = "model_interpeter"
 readme = "README.md"
 license = {'text' = "Proprietary"}
 authors = [

@@ -234,6 +234,9 @@ class ModelInterpreter:
                 the defined index class in the list.
 
         """
+        if not isinstance(predict_class_index, int):
+            raise ValueError("predicted class not a valid int")
+
         if isinstance(single_row, pd.DataFrame):
             number_of_features = single_row.shape[1]
             feature_values = single_row.values[0]
@@ -244,22 +247,32 @@ class ModelInterpreter:
 
         shap_vals = self.explainer.shap_values(single_row)
 
-        if isinstance(shap_vals, list):
-            if predict_class_index not in np.arange(
-                len(shap_vals) + 1
-            ) or not isinstance(predict_class_index, int):
-                raise ValueError("predicted class not a valid int")
+        # if values are all 0, shap doesn't bother splitting by class which impacts
+        # array dimension and our logic, so separate out this case
+        if (shap_vals == 0).all():
+            shap_values = [0] * number_of_features
 
-            shap_values = shap_vals[predict_class_index][0]
+        # this condition checks for classification
+        elif shap_vals.ndim == 3:
+            # this condition hits for multi-classification
+            if shap_vals.shape[2] > 2:
+                if predict_class_index not in np.arange(
+                    len(shap_vals) + 1
+                ) or not isinstance(predict_class_index, int):
+                    raise ValueError("predicted class not a valid int")
 
+            # this condition hits for binary classification
+            elif shap_vals.shape[2] == 2:
+                print(shap_vals)
+                if predict_class_index not in [0, 1]:
+                    raise ValueError("predicted class must be 0 or 1 for binary data")
+
+            # index first (only) row, all features, relevant class
+            shap_values = shap_vals[0, :, predict_class_index]
+
+        # this condition hits for regression
         else:
-            if predict_class_index not in [0, 1]:
-                raise ValueError("predicted class must be 0 or 1 for binary data")
-
-            shap_values = shap_vals[0]
-
-            if predict_class_index == 0:
-                shap_values *= -1
+            shap_values = shap_vals[0, :]
 
         if len(self.feature_names) != number_of_features:
             raise ValueError(

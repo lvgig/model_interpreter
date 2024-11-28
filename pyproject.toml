@@ -1,0 +1,70 @@
+[build-system]
+requires = [ "setuptools>=61", "wheel", "setuptools-git-versioning>=2.0,<3", ]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools-git-versioning]
+enabled = true # Allows setuptools-git-versioning to pull version from git state
+
+[tool.setuptools]
+packages = ["model_interpreter"]
+
+[project]
+name = "model_interpreter"
+readme = "README.md"
+license = {'text' = "Proprietary"}
+authors = [
+    {name = "LV GI Data Science Team", email = "#DataSciencePackages@lv.co.uk"},
+]
+description  = "this package contains functionality for reporting on how your ML model is making decisions"
+requires-python = ">= 3.9"
+dynamic = ["version"]
+
+dependencies = [
+    "numpy",
+    "shap",
+    "numba>=0.54", # numba is a dependency of shap and this version is required to build on py312+ - see https://github.com/shap/shap/pull/3843
+]
+
+[tool.uv.pip]
+universal = true
+
+[project.optional-dependencies]
+dev = [
+    "xgboost-cpu",
+    "pytest",
+    "pytest-mock",
+    "pytest-cov",
+    "pytest-benchmark",
+    "hypothesis",
+    "mypy",
+    "ruff",
+    "pre-commit",
+    "scikit-learn",
+    "pandas",
+]
+
+[tool.ruff]
+
+exclude = ["docs", "examples"]
+
+[tool.ruff.lint]
+select = [
+    "E",
+    "F",
+    "W",
+    "S",  # bandit
+]
+ignore = [
+    "E501",  # https://docs.astral.sh/ruff/rules/line-too-long/
+    "D203", # https://docs.astral.sh/ruff/rules/one-blank-line-before-class/ - D211 is mutually exclusive with D203
+    "D213", # https://docs.astral.sh/ruff/rules/multi-line-summary-second-line - D212 is mutually exclusive with D213
+]
+
+[tool.ruff.lint.per-file-ignores]
+"**/{tests}/*" = ["S101"] # use of assert (S101)
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+skip-magic-trailing-comma = false
+line-ending = "auto"
